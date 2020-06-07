@@ -1,4 +1,3 @@
-# SRS
 
 ![](http://ossrs.net/gif/v1/sls.gif?site=github.com&path=/srs/srs3)
 [![](https://circleci.com/gh/ossrs/srs/tree/3.0release.svg?style=svg&circle-token=1ef1d5b5b0cde6c8c282ed856a18199f9e8f85a9)](https://circleci.com/gh/ossrs/srs/tree/3.0release)
