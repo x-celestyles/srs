@@ -28,6 +28,8 @@
 #include <sys/wait.h>
 
 #include <sstream>
+#include <iostream>
+
 using namespace std;
 
 #ifdef SRS_AUTO_GPERF_MP
@@ -70,6 +72,7 @@ extern const char* _srs_version;
  */
 srs_error_t do_main(int argc, char** argv)
 {
+
     srs_error_t err = srs_success;
     
     // TODO: support both little and big endian.
@@ -120,18 +123,18 @@ srs_error_t do_main(int argc, char** argv)
     
     // config already applied to log.
     srs_trace("%s, %s", RTMP_SIG_SRS_SERVER, RTMP_SIG_SRS_LICENSE);
-    srs_trace("contributors: %s", SRS_AUTO_CONSTRIBUTORS);
+    // srs_trace("contributors: %s", SRS_AUTO_CONSTRIBUTORS);
     srs_trace("cwd=%s, work_dir=%s, build: %s, configure: %s, uname: %s, osx: %d",
         _srs_config->cwd().c_str(), cwd.c_str(), SRS_AUTO_BUILD_DATE, SRS_AUTO_USER_CONFIGURE, SRS_AUTO_UNAME, SRS_AUTO_OSX_BOOL);
-    srs_trace("configure detail: " SRS_AUTO_CONFIGURE);
+    // srs_trace("configure detail: " SRS_AUTO_CONFIGURE);
 #ifdef SRS_AUTO_EMBEDED_TOOL_CHAIN
     srs_trace("crossbuild tool chain: " SRS_AUTO_EMBEDED_TOOL_CHAIN);
 #endif
 
     // for memory check or detect.
     if (true) {
-        stringstream ss;
-        
+        // stringstream ss;
+        basic_stringstream<char> ss;
 #ifdef SRS_PERF_GLIBC_MEMORY_CHECK
         // ensure glibc write error to stderr.
         string lfsov = srs_getenv("LIBC_FATAL_STDERR_");
@@ -167,7 +170,7 @@ srs_error_t do_main(int argc, char** argv)
         string sss = ss.str();
         if (!sss.empty()) {
             srs_trace(sss.c_str());
-        }
+        } 
     }
     
     // we check the config when the log initialized.
@@ -205,8 +208,9 @@ int main(int argc, char** argv) {
  */
 void show_macro_features()
 {
+	basic_stringstream<char> ss;
     if (true) {
-        stringstream ss;
+    //    std:basic_stringstream<char> ss;
         
         ss << "features";
         
@@ -231,12 +235,13 @@ void show_macro_features()
         ss << ", stat:" << srs_bool2switch(true);
         // sc(stream-caster)
         ss << ", sc:" << srs_bool2switch(true);
-        srs_trace(ss.str().c_str());
+//        srs_trace(ss.str().c_str());
     }
     
     if (true) {
-        stringstream ss;
-        ss << "SRS on ";
+    //    std:basic_stringstream<char> ss;
+
+        ss << " SRS on ";
 #if defined(__amd64__)
         ss << " amd64";
 #endif
@@ -260,14 +265,14 @@ void show_macro_features()
         << ", writev:" << sysconf(_SC_IOV_MAX) << ", encoding:" << (srs_is_little_endian()? "little-endian":"big-endian")
         << ", HZ:" << (int)sysconf(_SC_CLK_TCK);
         
-        srs_trace(ss.str().c_str());
+        // srs_trace(ss.str().c_str());
     }
     
     if (true) {
-        stringstream ss;
+    //   std:basic_stringstream<char> ss;
         
         // mw(merged-write)
-        ss << "mw sleep:" << srsu2msi(SRS_PERF_MW_SLEEP) << "ms";
+        ss << " mw sleep:" << srsu2msi(SRS_PERF_MW_SLEEP) << "ms";
         
         // mr(merged-read)
         ss << ". mr ";
@@ -278,14 +283,14 @@ void show_macro_features()
 #endif
         ss << ", default:" << SRS_PERF_MR_ENABLED << ", sleep:" << srsu2msi(SRS_PERF_MR_SLEEP) << "ms";
         
-        srs_trace(ss.str().c_str());
+        // srs_trace(ss.str().c_str());
     }
     
     if (true) {
-        stringstream ss;
+    //    std:basic_stringstream<char> ss;
         
         // gc(gop-cache)
-        ss << "gc:" << srs_bool2switch(SRS_PERF_GOP_CACHE);
+        ss << " gc:" << srs_bool2switch(SRS_PERF_GOP_CACHE);
         // pq(play-queue)
         ss << ", pq:" << srsu2msi(SRS_PERF_PLAY_QUEUE) << "ms";
         // cscc(chunk stream cache cid)
@@ -314,6 +319,7 @@ void show_macro_features()
         ss << "auto(guess by merged write)";
 #endif
         
+        // cout << "I get there";
         srs_trace(ss.str().c_str());
     }
     

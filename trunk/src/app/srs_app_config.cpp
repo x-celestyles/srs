@@ -3406,9 +3406,10 @@ srs_error_t SrsConfig::parse_argv(int& i, char** argv)
 void SrsConfig::print_help(char** argv)
 {
     printf(
-           RTMP_SIG_SRS_SERVER ", " RTMP_SIG_SRS_URL ", licensed under " RTMP_SIG_SRS_LICENSE
-           ", built at " SRS_AUTO_BUILD_DATE ", configured by " SRS_AUTO_USER_CONFIGURE
-           ", which means " SRS_AUTO_CONFIGURE "\n""\n"
+           RTMP_SIG_SRS_SERVER //", " RTMP_SIG_SRS_URL ", licensed under " RTMP_SIG_SRS_LICENSE
+           ", built at " SRS_AUTO_BUILD_DATE //", configured by " SRS_AUTO_USER_CONFIGURE
+           // ", which means " SRS_AUTO_CONFIGURE
+           "\n""\n"
            "Usage: %s <-h?vVgG>|<[-t] -c filename>\n"
            "Options:\n"
            "   -?, -h              : Show this help and exit 0.\n"
@@ -3466,7 +3467,7 @@ srs_error_t SrsConfig::check_normal_config()
 {
     srs_error_t err = srs_success;
     
-    srs_trace("srs checking config...");
+    srs_trace("cms checking config...");
     
     ////////////////////////////////////////////////////////////////////////
     // check empty

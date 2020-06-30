@@ -25,7 +25,7 @@
 #define SRS_CORE_HPP
 
 // The version config.
-#define VERSION_MAJOR       3
+#define VERSION_MAJOR       1
 #define VERSION_MINOR       0
 #include <srs_core_version3.hpp>
 #define VERSION_REVISION    SRS_VERSION3_REVISION
@@ -39,10 +39,10 @@
 #define SRS_XSTR(v) SRS_INTERNAL_STR(v)
 
 // The project informations, may sent to client in HTTP header or RTMP metadata.
-#define RTMP_SIG_SRS_KEY "SRS"
-#define RTMP_SIG_SRS_CODE "OuXuli"
-#define RTMP_SIG_SRS_URL "https://github.com/ossrs/srs"
-#define RTMP_SIG_SRS_LICENSE "The MIT License (MIT)"
+#define RTMP_SIG_SRS_KEY "Celeslive Media Server"
+#define RTMP_SIG_SRS_CODE "celeslive.com"
+#define RTMP_SIG_SRS_URL ""
+#define RTMP_SIG_SRS_LICENSE ""
 #define RTMP_SIG_SRS_VERSION SRS_XSTR(VERSION_MAJOR) "." SRS_XSTR(VERSION_MINOR) "." SRS_XSTR(VERSION_REVISION)
 #define RTMP_SIG_SRS_SERVER RTMP_SIG_SRS_KEY "/" RTMP_SIG_SRS_VERSION "(" RTMP_SIG_SRS_CODE ")"
 
